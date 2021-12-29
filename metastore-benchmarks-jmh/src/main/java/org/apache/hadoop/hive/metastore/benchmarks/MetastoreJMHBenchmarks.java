@@ -72,12 +72,11 @@ public class MetastoreJMHBenchmarks {
 
   public static void main(String[] args) throws RunnerException {
     Options opt = new OptionsBuilder()
-        .include(MetastoreJMHBenchmarks.class.getSimpleName())
-        .forks(1)
-        .verbosity(VerboseMode.NORMAL)
-        .mode(Mode.AverageTime)
-        .timeUnit(TimeUnit.MILLISECONDS)
-        .build();
+            .include(MetastoreJMHBenchmarks.class.getSimpleName())
+            .forks(1)
+            .verbosity(VerboseMode.NORMAL)
+            .mode(Mode.AverageTime)
+            .build();
 
     new Runner(opt).run();
   }
@@ -109,6 +108,7 @@ public class MetastoreJMHBenchmarks {
     }
   }
 
+  @OutputTimeUnit(TimeUnit.MILLISECONDS)
   @State(Scope.Thread)
   public static class benchCreateTable extends benchmarkState {
     private String tableName;
@@ -141,6 +141,7 @@ public class MetastoreJMHBenchmarks {
     }
   }
 
+  @OutputTimeUnit(TimeUnit.MILLISECONDS)
   @State(Scope.Thread)
   public static class benchDropTable extends benchmarkState {
     private String tableName;
@@ -173,6 +174,7 @@ public class MetastoreJMHBenchmarks {
     }
   }
 
+  @OutputTimeUnit(TimeUnit.MILLISECONDS)
   @State(Scope.Thread)
   public static class benchGetEventId extends benchmarkState {
 
@@ -217,6 +219,7 @@ public class MetastoreJMHBenchmarks {
     }
   }
 
+  @OutputTimeUnit(TimeUnit.MILLISECONDS)
   @State(Scope.Thread)
   public static class benchGetTable extends partitionedTableState {
 
