@@ -173,8 +173,6 @@ public class BenchmarkTool implements Runnable {
             () -> benchmarkGetPartitionNames(bench, bData, 1))
         .add("getPartitionsByNames",
             () -> benchmarkGetPartitionsByName(bench, bData, 1))
-        .add("getTableObjectsByName",
-            () -> benchmarkGetTableObjects(bench, bData, 1))
         .add("renameTable",
             () -> benchmarkRenameTable(bench, bData, 1))
         .add("dropDatabase",
@@ -201,8 +199,6 @@ public class BenchmarkTool implements Runnable {
               () -> benchmarkRenameTable(bench, bData, howMany))
           .add("dropDatabase" + '.' + howMany,
               () -> benchmarkDropDatabase(bench, bData, howMany))
-          .add("getTableObjectsByName" + "." + howMany,
-              () -> benchmarkGetTableObjects(bench, bData, howMany))
           .add("concurrentPartitionAdd" + "#" + nThreads + "." + howMany,
               () -> benchmarkConcurrentPartitionOps(bench, bData, howMany, nThreads));
     }
